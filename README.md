@@ -1,5 +1,7 @@
 # myweatherapp
 AngularJS 1 with Google Map and open weather API 
+Demo:
+- http://shadkhan.in/myprojects/CompuCorpWeather/app/index.html
 
 This is simple weather app that load Cities from Google Map using vs-autocomplete plugin and fetch the weather from open weather api
 
