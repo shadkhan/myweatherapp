@@ -1,0 +1,70 @@
+<nav class="navbar navbar-default" role="navigation">
+    <form name="form" class="navbar-form navbar-left" role="form" novalidate>
+	 <label>{{title}}</label> 
+        
+        <label for="units">{{'Units'}}</label>
+        <select id="units" class="form-control" required
+                ng-model="search.units">
+            <option value="metric">{{'Metric'}}(°C)</option>
+            <option value="imperial">{{'Imperial' }}(°F)</option>
+        </select>
+			   
+			   
+          <label for="city">City</label>
+          <input vs-google-autocomplete="{ types:['(cities)'] }"
+                 ng-model="search.city" 
+                 type="text"  required
+                 name="city"
+                 id="city"
+                 class="form-control" 
+                 placeholder="Enter city name">
+         
+       <label for="city1"> <span class="help-block"><b>Model: </b>{{search.city || 'Placeholderforcity'}}</span></label>
+		 	   
+			   
+			   
+			   
+			   
+			   
+        <button  class="btn btn-primary btn-sm"
+                data-loading-text="Loading..." autocomplete="off"
+                 search-btn>
+            <span class="glyphicon glyphicon-search"></span>
+            {{'Search' }}
+        </button>
+    </form>
+</nav>
+
+<div ng-show="notFoundError" class="alert alert-danger alert-dismissible" role="alert">
+    <span class="glyphicon glyphicon-exclamation-sign"></span>
+    <span class="sr-only">{{ 'Error'  }}:</span>
+    {{'City_not_found' }}
+</div>
+
+<!-- week list -->
+<div id="weekDiv" ng-show="showWeek()">
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-th-list"></span>
+            <strong>{{weathers.city.name}}, {{weathers.city.country}}</strong>
+        </div>
+
+        <!-- results list -->
+        <div class="list-group">
+            <a href="#" ng-click="day(w.dt);$event.preventDefault(); $event.stopPropagation();"
+               class="list-group-item slide-animation "
+               ng-repeat="w in weathers.list">
+                <span class="col-sm-1.5">{{w.dt * 1000 | date : 'MM-dd'}}</span>
+                <img ng-src="http://openweathermap.org/img/w/{{w.weather[0].icon}}.png">
+                {{w.weather[0].description}}
+                <span class="label label-default">{{w.temp.min}}{{unitFlag}}</span>
+                <span class="label label-warning">{{w.temp.max}}{{unitFlag}}</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- day details -->
+<div id="dayDiv" ng-show="showDay()" ng-include="'views/weather.html'">
+</div>
