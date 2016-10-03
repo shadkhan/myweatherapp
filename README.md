@@ -9,7 +9,8 @@ This one is without Grunt package you can directly run it under your server, I w
 
 To run this app you need a webserver 
 If you have python installed run the below command in myweatherapp folder
-python -m SimpleHTTPServer 8000
+
+- python -m SimpleHTTPServer 8000
 
 Browser : localhost:8000/index.html
 
