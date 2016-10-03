@@ -11,6 +11,8 @@ To run this app you need a webserver
 If you have python installed run the below command in myweatherapp folder
 python -m SimpleHTTPServer 8000
 
+Browser : localhost:8000/index.html
+
 If you dont have python and dont have webserver (localhost) installed , so easiest way to runn webserver add the plugin in Chrome
 - https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en
 
